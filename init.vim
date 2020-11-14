@@ -16,6 +16,8 @@ call plug#begin("~/.vim/plugged")
 	let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
 	Plug 'leafgarland/typescript-vim'
 	Plug 'peitalin/vim-jsx-typescript'
+    Plug 'preservim/nerdcommenter'
+    Plug 'daeyun/vim-matlab'
 call plug#end()
 
 " add plugin to ignore node files
@@ -91,3 +93,6 @@ else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
+set relativenumber
+let mapleader = " " " map leader to Space
+let mapleader = "," " map leader to comma
