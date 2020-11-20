@@ -96,3 +96,5 @@ endif
 set relativenumber
 let mapleader = " " " map leader to Space
 let mapleader = "," " map leader to comma
+
+nmap <C-s> :w <CR>
