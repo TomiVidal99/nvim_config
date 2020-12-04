@@ -99,9 +99,9 @@ let mapleader = "," " map leader to comma
 
 nmap <C-s> :w <CR>
 
-" bind Ctrl+j moves to next tab
-" bind Ctrl+k moves to previous tab
+" bind Ctrl+l moves to next tab
+" bind Ctrl+h moves to previous tab
 " bind Ctrl+n creates a new tab
-map  <C-j> :tabn<CR>
-map  <C-k> :tabp<CR>
+map  <C-l> :tabn<CR>
+map  <C-h> :tabp<CR>
 map  <C-n> :tabnew<CR>
