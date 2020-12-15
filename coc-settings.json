@@ -1,0 +1,10 @@
+{
+  "languageserver": {
+    "javascript": {
+      "command": "http-server",
+      "rootPatterns": ["main.js"],
+      "trace.server": "verbose",
+      "filetypes": ["js"]
+    }
+  }
+}

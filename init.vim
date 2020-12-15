@@ -13,11 +13,13 @@ call plug#begin("~/.vim/plugged")
 	Plug 'junegunn/fzf.vim'
 	Plug 'dracula/vim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+	let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json']
 	Plug 'leafgarland/typescript-vim'
 	Plug 'peitalin/vim-jsx-typescript'
     Plug 'preservim/nerdcommenter'
     Plug 'daeyun/vim-matlab'
+    " color scheme
+    "Plugin 'flazz/vim-colorschemes'
 call plug#end()
 
 " add plugin to ignore node files
@@ -29,6 +31,8 @@ if (has("termguicolors"))
 endif
 syntax enable
 colorscheme dracula
+"colorscheme 0x7A69_dark
+"colorscheme anderson
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = []
@@ -49,7 +53,7 @@ function! OpenTerminal()
   split term://bash
   resize 10
 endfunction
-nnoremap <c-n> :call OpenTerminal()<CR>
+nnoremap <A-t> :call OpenTerminal()<CR>
 " use alt+hjkl to move between split/vsplit panels
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
@@ -99,9 +103,13 @@ let mapleader = "," " map leader to comma
 
 nmap <C-s> :w <CR>
 
-" bind Ctrl+l moves to next tab
-" bind Ctrl+h moves to previous tab
+" bind Ctrl+k moves to next tab
+" bind Ctrl+j moves to previous tab
 " bind Ctrl+n creates a new tab
-map  <C-l> :tabn<CR>
-map  <C-h> :tabp<CR>
+map  <C-k> :tabn<CR>
+map  <C-j> :tabp<CR>
 map  <C-n> :tabnew<CR>
+
+" bind ESC to right alt
+map <C-m> :/ <CR>
+map <A-a> :noh<CR>
