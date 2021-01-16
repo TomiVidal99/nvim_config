@@ -1,5 +1,4 @@
-filetype plugin indent on
-" On pressing tab, insert 2 spaces
+filetype plugin indent on " On pressing tab, insert 2 spaces
 set expandtab
 " show existing tab with 2 spaces width
 set tabstop=4
@@ -18,6 +17,14 @@ call plug#begin("~/.vim/plugged")
 	Plug 'peitalin/vim-jsx-typescript'
     Plug 'preservim/nerdcommenter'
     Plug 'daeyun/vim-matlab'
+
+    " some latex plugs
+    Plug 'lervag/vimtex'
+
+    " old vim plugs
+    " Plug 'lervag/vimtex'
+    " Plug 'Konfekt/FastFold'
+    " Plug 'matze/vim-tex-fold'
     " color scheme
     "Plugin 'flazz/vim-colorschemes'
 call plug#end()
@@ -67,7 +74,7 @@ nnoremap <C-p> :FZF<CR>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit'
+  \ 'ctrl-x': 'vsplit'
   \}
 " map esc to alt-left and enter to right alt
 nmap ff <Return>
@@ -106,10 +113,44 @@ nmap <C-s> :w <CR>
 " bind Ctrl+k moves to next tab
 " bind Ctrl+j moves to previous tab
 " bind Ctrl+n creates a new tab
-map  <C-k> :tabn<CR>
-map  <C-j> :tabp<CR>
+map  <C-l> :tabn<CR>
+map  <C-h> :tabp<CR>
 map  <C-n> :tabnew<CR>
 
 " bind ESC to right alt
 map <C-m> :/ <CR>
 map <A-a> :noh<CR>
+
+" " LATEX config
+" let g:tex_flavor  = 'latex'
+" let g:tex_conceal = ''
+" let g:vimtex_fold_manual = 1
+" let g:vimtex_latexmk_continuous = 1
+" let g:vimtex_compiler_progname = 'nvr'
+" 
+" " NCM2
+" augroup NCM2
+"   autocmd!
+"   " some other settings...
+"   " uncomment this block if you use vimtex for LaTex
+"   autocmd Filetype tex call ncm2#register_source({
+"             \ 'name': 'vimtex',
+"             \ 'priority': 8,
+"             \ 'scope': ['tex'],
+"             \ 'mark': 'tex',
+"             \ 'word_pattern': '\w+',
+"             \ 'complete_pattern': g:vimtex#re#ncm2,
+"             \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
+"             \ })
+" augroup END
+
+" AUTO MAPPING FOR MATLAB LIBRARY DISABLED
+let g:matlab_auto_mappings = 0 "automatic mappings disabled
+
+" maps for resizing 
+nmap <A-b> :resize 1 <CR>
+nmap <A-v> :res +1 <CR>
+nmap <A-c> :res -1 <CR>
+
+"bind to auto compile .tex (latex) files
+nmap <A-p> :VimtexCompile <CR>
