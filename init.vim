@@ -148,9 +148,12 @@ map <A-a> :noh<CR>
 let g:matlab_auto_mappings = 0 "automatic mappings disabled
 
 " maps for resizing 
-nmap <A-b> :resize 1 <CR>
+nmap <A-b> :resize 100 <CR>
 nmap <A-v> :res +1 <CR>
 nmap <A-c> :res -1 <CR>
 
 "bind to auto compile .tex (latex) files
 nmap <A-p> :VimtexCompile <CR>
+
+"bind to auto complete close of brackets
+inoremap { {<CR>}<Esc>ko
