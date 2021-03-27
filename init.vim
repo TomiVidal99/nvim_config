@@ -27,7 +27,25 @@ call plug#begin("~/.vim/plugged")
     " Plug 'matze/vim-tex-fold'
     " color scheme
     "Plugin 'flazz/vim-colorschemes'
+    
+    " plugins for c language
+    Plug 'deoplete-plugins/deoplete-clang'
 call plug#end()
+
+" linters for c languague
+let g:ale_linters = {
+    \ 'python': ['pylint'],
+    \ 'vim': ['vint'],
+    \ 'cpp': ['clang'],
+    \ 'c': ['clang']
+\}
+" custom setting for clangformat
+let g:neoformat_cpp_clangformat = {
+    \ 'exe': 'clang-format',
+    \ 'args': ['--style="{IndentWidth: 4}"']
+\}
+let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_c = ['clangformat']
 
 " add plugin to ignore node files
 let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -53,14 +71,20 @@ set splitright
 set splitbelow
 " turn terminal to normal mode with escape
 tnoremap <Esc> <C-\><C-n>
+tnoremap <A-a> <C-\><C-n>
 " start terminal in insert mode
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
-" open terminal on ctrl+n
+" open terminal on ctrl+t
 function! OpenTerminal()
   split term://bash
   resize 10
 endfunction
 nnoremap <A-t> :call OpenTerminal()<CR>
+" custom commands to compile and execute code in c, c++ and python
+autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<CR>
+"autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype c nnoremap <F4> :w <bar> term gcc %:p -o %:p:r && %:p:r <CR>
+autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 " use alt+hjkl to move between split/vsplit panels
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
