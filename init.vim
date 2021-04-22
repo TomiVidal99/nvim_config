@@ -83,8 +83,9 @@ nnoremap <A-t> :call OpenTerminal()<CR>
 " custom commands to compile and execute code in c, c++ and python
 autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<CR>
 "autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-"autocmd filetype c nnoremap <F4> :w <bar> term gcc %:p -o %:p:r -lm && %:p:r <CR>
+autocmd filetype c nnoremap <F5> :w <bar> term gcc %:p -o %:p:r -lm && %:p:r <CR>
 autocmd filetype c nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-gcc -std=c90 '.shellescape('%:p')' -o '.shellescape('%:p:r')' && wineconsole '.shellescape('%:p:r') <CR>
+autocmd filetype c nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-gcc -std=c90 '.shellescape('%:p')' -o '.shellescape('%:p:r')' & wineconsole '.shellescape('%:p:r') <CR>
 autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 " use alt+hjkl to move between split/vsplit panels
 tnoremap <A-h> <C-\><C-n><C-w>h
