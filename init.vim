@@ -6,6 +6,7 @@ set softtabstop=4
 " when indenting with '>', use 2 spaces width
 set shiftwidth=4
 call plug#begin("~/.vim/plugged")
+
 	Plug 'scrooloose/nerdtree'
 	Plug 'ryanoasis/vim-devicons'
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -27,11 +28,24 @@ call plug#begin("~/.vim/plugged")
     "git branch display
     Plug 'itchyny/vim-gitbranch'
     Plug 'airblade/vim-gitgutter'
+    "for airblade we have to do something more to install it --->
+    "                  mkdir -p ~/.config/nvim/pack/airblade/start
+    "                  cd ~/.config/nvim/pack/airblade/start
+    "                  git clone https://github.com/airblade/vim-gitgutter.git
+    "                  nvim -u NONE -c "helptags vim-gitgutter/doc" -c q
+    "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ end ~~~
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
     
     " plugins for c language
     Plug 'deoplete-plugins/deoplete-clang'
+
+    "easy-align commands for aligning properly everything
+    Plug 'junegunn/vim-easy-align'
+
+    "adds commands for fancy comments
+    Plug 'cometsong/CommentFrame.vim'
+
 call plug#end()
 
 " linters for c languague
@@ -186,10 +200,35 @@ nmap <A-p> :VimtexCompile <CR>
 inoremap { {<CR>}<Esc>ko
 
 "bind to switch fold on git changes on current file
-nmap <C-i> :GitGutterFold <CR>
+nmap <A-k> :GitGutterFold <CR>
 
 "bind to display current brach
 nmap <C-k> :echo gitbranch#name() <CR>
 
 "bind to show all commits and navigate between them
-nmap <C-x> :GV <CR>
+nmap <A-m> :GV <CR>
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
+
+"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FANCY COMMENTS ~~~~~
+" USAGE OF FANCY COMMENTS
+"
+" Key     Command Name                Result
+"     ---     --------------------------  ----------------------------------------
+"     fcs     CommentFrameSlashes         border: //****************************//
+"     fcS     CommentFrameSlashStar       border: /******************************/
+"     fch     CommentFrameHashDash        border: #------------------------------#
+"     fcH     CommentFrameHashEqual       border: #==============================#
+"     fcq     CommentFrameQuoteDash       border: "------------------------------"
+"     fcQ     CommentFrameQuoteTilde      border: "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+" 
+"     frh     CommentRightHash            line: #~~~~~~~~~~~~~~~~~~~~~ title ~~~~~
+"     frs     CommentRightSlashes         line: //~~~~~~~~~~~~~~~~~~~~ title ~~~~~
+"     frS     CommentRightSlashStar       line: /*~~~~~~~~~~~~~~~~~~ title ~~~~~*/
+"     frq     CommentRightQuote           line: "~~~~~~~~~~~~~~~~~~~~~ title ~~~~~
