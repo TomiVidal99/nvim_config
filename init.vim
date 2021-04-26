@@ -21,12 +21,14 @@ call plug#begin("~/.vim/plugged")
     " some latex plugs
     Plug 'lervag/vimtex'
 
-    " old vim plugs
-    " Plug 'lervag/vimtex'
-    " Plug 'Konfekt/FastFold'
-    " Plug 'matze/vim-tex-fold'
-    " color scheme
-    "Plugin 'flazz/vim-colorschemes'
+    "linter for almost any language
+    Plug 'dense-analysis/ale'
+
+    "git branch display
+    Plug 'itchyny/vim-gitbranch'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/gv.vim'
     
     " plugins for c language
     Plug 'deoplete-plugins/deoplete-clang'
@@ -182,3 +184,12 @@ nmap <A-p> :VimtexCompile <CR>
 
 "bind to auto complete close of brackets
 inoremap { {<CR>}<Esc>ko
+
+"bind to switch fold on git changes on current file
+nmap <C-i> :GitGutterFold <CR>
+
+"bind to display current brach
+nmap <C-k> :echo gitbranch#name() <CR>
+
+"bind to show all commits and navigate between them
+nmap <C-x> :GV <CR>
