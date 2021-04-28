@@ -200,7 +200,7 @@ nmap <A-p> :VimtexCompile <CR>
 inoremap { {<CR>}<Esc>ko
 
 "bind to switch fold on git changes on current file
-nmap <A-k> :GitGutterFold <CR>
+nmap <A-n> :GitGutterFold <CR>
 
 "bind to display current brach
 nmap <C-k> :echo gitbranch#name() <CR>
