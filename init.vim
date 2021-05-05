@@ -214,7 +214,8 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-
+" command to open a new terminal in the current directoy
+map <F8> :exec '!konsole '.shellescape('%')' & disown' <CR>
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FANCY COMMENTS ~~~~~
 " USAGE OF FANCY COMMENTS
