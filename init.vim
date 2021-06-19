@@ -219,7 +219,6 @@ nmap ga <Plug>(EasyAlign)
 
 " command to open a new terminal in the current directoy
 map <F8> :exec '!konsole '.shellescape('%')' & disown' <CR>
-map <F10> :exec '!gnome-terminal '.shellescape('%')' & disown' <CR>
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FANCY COMMENTS ~~~~~
 " USAGE OF FANCY COMMENTS
