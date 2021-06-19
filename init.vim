@@ -71,6 +71,8 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
+"if defined the below command will make the background transparent
+let g:dracula_colorterm = 0
 colorscheme dracula
 "colorscheme 0x7A69_dark
 "colorscheme anderson
@@ -99,9 +101,10 @@ nnoremap <A-t> :call OpenTerminal()<CR>
 " custom commands to compile and execute code in c, c++ and python
 autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<CR>
 "autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
-autocmd filetype c nnoremap <F5> :w <bar> term gcc %:p -o %:p:r -lm && %:p:r <CR>
 autocmd filetype c nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-gcc '.shellescape('%:p')'-o '.shellescape('%:p:r.exe')'-std=c90 && wineconsole '.shellescape('%:p:r.exe') <CR>
-autocmd filetype cpp nnoremap <F4> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+autocmd filetype c nnoremap <F5> :w <bar> term gcc %:p -o %:p:r -lm && %:p:r <CR>
+autocmd filetype cpp nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-g++ -static '.shellescape('%:p')' -o '.shellescape('%:p:r.exe')' && wineconsole '.shellescape('%:p:r.exe') <CR>
+autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 " use alt+hjkl to move between split/vsplit panels
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
