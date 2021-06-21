@@ -27,8 +27,14 @@
                 },
                 "highlight": { 
                     "lsRanges" : true
+                },
+                "index": {
+                    "onChange": true
+                },
+                "highlight": {
+                    "lsRanges" : true 
                 }
             }
         }
-  }
+    }
 }

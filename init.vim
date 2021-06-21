@@ -19,6 +19,12 @@ call plug#begin("~/.vim/plugged")
     Plug 'preservim/nerdcommenter'
     Plug 'daeyun/vim-matlab'
 
+    " cpp linting
+    " FOR IT TO RUN INSTALL: pip install cpplint
+    Plug 'vim-syntastic/syntastic'
+    " cpp sintax highligh
+    Plug 'jackguo380/vim-lsp-cxx-highlight'
+
     " some latex plugs
     Plug 'lervag/vimtex'
 
@@ -47,6 +53,19 @@ call plug#begin("~/.vim/plugged")
     Plug 'cometsong/CommentFrame.vim'
 
 call plug#end()
+
+"linter for cpp
+let g:syntastic_cpp_checkers = ['cpplint']
+let g:syntastic_c_checkers = ['cpplint']
+let g:syntastic_cpp_cpplint_exec = 'cpplint'
+" The following two lines are optional. Configure it to your liking!
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" c++ syntax highlighting
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
 
 " linters for c languague
 let g:ale_linters = {
