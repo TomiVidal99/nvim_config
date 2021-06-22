@@ -135,6 +135,8 @@ autocmd filetype c nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-gcc '.shellesc
 autocmd filetype c nnoremap <F5> :w <bar> term gcc %:p -o %:p:r -lm && %:p:r <CR>
 autocmd filetype cpp nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-g++ -static '.shellescape('%:p')' -o '.shellescape('%:p:r.exe')' && wineconsole '.shellescape('%:p:r.exe') <CR>
 autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
+"JUST RUN THE COMPILED CODE
+autocmd filetype cpp nnoremap <F3> :w <bar> exec '!./'.shellescape('%:r')<CR>
 "COMPILE CPP CODE FOR GTK LIBRARY
 autocmd filetype cpp nnoremap <F2> :w <bar> exec '!g++ -o'.shellescape('%:r')' $(pkg-config --cflags --libs gtkmm-3.0) '.shellescape('%').' && ./'.shellescape('%:r')<CR>
 " use alt+hjkl to move between split/vsplit panels
