@@ -255,15 +255,15 @@ map <F8> :exec '!konsole '.shellescape('%')' & disown' <CR>
 
 "config for coc snippets: SHOULD INSTALL PYTHON NVIM
 " Use <C-l> for trigger snippet expand.
-imap <S-l> <Plug>(coc-snippets-expand)
+imap <C-l> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
-vmap <S-j> <Plug>(coc-snippets-select)
+vmap <C-j> <Plug>(coc-snippets-select)
 " Use <C-j> for jump to next placeholder, it's default of coc.nvim
 let g:coc_snippet_next = '<c-j>'
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
 let g:coc_snippet_prev = '<c-k>'
 " Use <C-j> for both expand and jump (make expand higher priority.)
-imap <S-j> <Plug>(coc-snippets-expand-jump)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 " Use <leader>x for convert visual selected code to snippet
 xmap <leader>x  <Plug>(coc-convert-snippet)
 "MAKE TAB TO AUTO COMPLETE SNIPPET LIKE VSCODE
