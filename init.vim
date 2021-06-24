@@ -138,7 +138,7 @@ autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '
 "JUST RUN THE COMPILED CODE
 autocmd filetype cpp nnoremap <F3> :w <bar> exec '!./'.shellescape('%:r')<CR>
 "COMPILE CPP CODE FOR GTK LIBRARY
-autocmd filetype cpp nnoremap <F2> :w <bar> exec '!g++ -o'.shellescape('%:r')' $(pkg-config --cflags --libs gtkmm-3.0) '.shellescape('%').' && ./'.shellescape('%:r')<CR>
+autocmd filetype cpp nnoremap <F2> :w <bar> exec '!g++ -o'.shellescape('%:r')' $(pkg-config --cflags --libs gtkmm-4.0) '.shellescape('%').' && ./'.shellescape('%:r')<CR>
 " use alt+hjkl to move between split/vsplit panels
 tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
