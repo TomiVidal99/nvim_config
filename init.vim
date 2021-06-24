@@ -1,3 +1,5 @@
+"SHOULD INSTALL the_silver_searcher
+
 "config for coc snippets: SHOULD INSTALL PYTHON NVIM
 " Use <C-l> for trigger snippet expand.
 imap <C-z> <Plug>(coc-snippets-expand)
