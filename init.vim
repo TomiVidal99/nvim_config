@@ -1,5 +1,15 @@
 "SHOULD INSTALL the_silver_searcher
 
+"set the default fzf preview key
+let g:coc_fzf_preview_toggle_key = "?"
+" needed for colors preview
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.95 } }
+"just to ... with fzf
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 "set default clipboard
 let g:clipboard = {
       \   'name': 'gpaste',
@@ -53,21 +63,37 @@ set shiftwidth=4
 call plug#begin("~/.vim/plugged")
 
 	Plug 'scrooloose/nerdtree'
+
 	Plug 'ryanoasis/vim-devicons'
+
 	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 	Plug 'junegunn/fzf.vim'
-	Plug 'dracula/vim'
+    Plug 'dracula/vim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
+
 	let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json']
+
 	Plug 'leafgarland/typescript-vim'
 	Plug 'peitalin/vim-jsx-typescript'
+
     Plug 'preservim/nerdcommenter'
+
     Plug 'daeyun/vim-matlab' 
+
+    Plug 'octol/vim-cpp-enhanced-highlight'
+
     " cpp linting
     " FOR IT TO RUN INSTALL: pip install cpplint
     Plug 'vim-syntastic/syntastic'
     " cpp sintax highligh
-    Plug 'jackguo380/vim-lsp-cxx-highlight'
+
+    " Activate one of these
+    "Plug 'prabirshrestha/vim-lsp' " vim-lsp
+    "Plug 'autozimu/LanguageClient-neovim' " LanguageClient-neovim
+    "Plug 'neoclide/coc.nvim' " coc.nvim
+    "Plug 'neovim/nvim-lsp' " nvim-lsp
+    "Plug 'jackguo380/vim-lsp-cxx-highlight'
 
     " some latex plugs
     Plug 'lervag/vimtex'
@@ -97,6 +123,22 @@ call plug#begin("~/.vim/plugged")
     Plug 'cometsong/CommentFrame.vim'
 
 call plug#end()
+
+"vim-cpp-enhanced-highlight
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_posix_standard = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+
+"colorsheme for cpp 
+"let g:lsp_cxx_hl_ft_whitelist = ['c', 'cpp', 'h']
+"let g:lsp_cxx_hl_use_nvim_text_props = 1 
+"let g:lsp_cxx_hl_light_bg = 1 
+"highlight LspCxxHlSymClassMethod ctermfg=Magenta guifg=Magenta
+"highlight LspCxxHlSymStructMethod  ctermfg=Red guifg=Red
+"highlight LspCxxHlSymVariableStatic ctermfg=Blue guifg=Blue
 
 "linter for cpp
 let g:syntastic_cpp_checkers = ['cpplint']
@@ -145,6 +187,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
+set cursorline
 "if defined the below command will make the background transparent
 let g:dracula_colorterm = 0
 colorscheme dracula
