@@ -132,14 +132,6 @@ let g:cpp_posix_standard = 1
 let g:cpp_experimental_simple_template_highlight = 1
 let g:cpp_concepts_highlight = 1
 
-"colorsheme for cpp 
-"let g:lsp_cxx_hl_ft_whitelist = ['c', 'cpp', 'h']
-"let g:lsp_cxx_hl_use_nvim_text_props = 1 
-"let g:lsp_cxx_hl_light_bg = 1 
-"highlight LspCxxHlSymClassMethod ctermfg=Magenta guifg=Magenta
-"highlight LspCxxHlSymStructMethod  ctermfg=Red guifg=Red
-"highlight LspCxxHlSymVariableStatic ctermfg=Blue guifg=Blue
-
 "linter for cpp
 let g:syntastic_cpp_checkers = ['cpplint']
 let g:syntastic_c_checkers = ['cpplint']
