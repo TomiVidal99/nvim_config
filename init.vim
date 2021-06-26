@@ -1,5 +1,19 @@
 "SHOULD INSTALL the_silver_searcher
 
+"set default clipboard
+let g:clipboard = {
+      \   'name': 'gpaste',
+      \   'copy': {
+      \      '+': 'tmux load-buffer -',
+      \      '*': 'tmux load-buffer -',
+      \    },
+      \   'paste': {
+      \      '+': 'tmux save-buffer -',
+      \      '*': 'tmux save-buffer -',
+      \   },
+      \   'cache_enabled': 1,
+      \ }
+
 "config for coc snippets: SHOULD INSTALL PYTHON NVIM
 " Use <C-l> for trigger snippet expand.
 imap <C-z> <Plug>(coc-snippets-expand)
@@ -25,6 +39,9 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 "let g:coc_snippet_next = '<tab>'
+
+"replace highlighted text with prompted input hotkey
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 filetype plugin indent on " On pressing tab, insert 2 spaces
 set expandtab
@@ -279,7 +296,10 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " command to open a new terminal in the current directoy
-map <F8> :exec '!konsole '.shellescape('%')' & disown' <CR>
+map <F8> :exec '!konsole'.shellescape('%:p')' && disown' <CR>
+map <F9> :exec '!gnome-terminal '.shellescape('%:p')' && disown' <CR>
+"TODO: arreglar este comando
+"map <F10> :exec '!xfce4-terminal --default-working-directory='.shellescape('%:p')' && disown' <CR>
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FANCY COMMENTS ~~~~~
 " USAGE OF FANCY COMMENTS
@@ -297,3 +317,5 @@ map <F8> :exec '!konsole '.shellescape('%')' & disown' <CR>
 "     frs     CommentRightSlashes         line: //~~~~~~~~~~~~~~~~~~~~ title ~~~~~
 "     frS     CommentRightSlashStar       line: /*~~~~~~~~~~~~~~~~~~ title ~~~~~*/
 "     frq     CommentRightQuote           line: "~~~~~~~~~~~~~~~~~~~~~ title ~~~~~
+
+" TODO: add snippets DOWN HERE
