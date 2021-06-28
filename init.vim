@@ -2,8 +2,24 @@
 
 "set the default fzf preview key
 let g:coc_fzf_preview_toggle_key = "?"
+"fuzzy finder hotkeys
+"Most commands support CTRL-T / CTRL-X / CTRL-V key bindings to open in a new tab, a new split, or in a new vertical split
+" This is the default option:
+"   - Preview window on the right with 50% width
+"   - CTRL-/ will toggle preview window.
+" - Note that this array is passed as arguments to fzf#vim#with_preview function.
+" - To learn more about preview window options, see `--preview-window` section of `man fzf`.
+"let g:fzf_preview_window = ['up:50%', 'ctrl-U']
+let g:fzf_preview_window = 'right:60%'
+
+" Preview window on the upper side of the window with 40% height,
+" hidden by default, ctrl-/ to toggle
+"let g:fzf_preview_window = ['up:40%:hidden', 'ctrl-u']
+
+" Empty value to disable preview window altogether
+"let g:fzf_preview_window = []
 " needed for colors preview
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.95 } }
+let g:fzf_layout = { 'window': { 'width': 0.85, 'height': 0.95 } }
 "just to ... with fzf
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
