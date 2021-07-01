@@ -228,7 +228,7 @@ autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<
 "autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype c nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-gcc '.shellescape('%:p')'-o '.shellescape('%:p:r.exe')'-std=c90 && wineconsole '.shellescape('%:p:r.exe') <CR>
 autocmd filetype c nnoremap <F5> :w <bar> term gcc %:p -o %:p:r -lm && %:p:r <CR>
-autocmd filetype cpp nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-g++ -static '.shellescape('%:p')' -o '.shellescape('%:p:r.exe')' && wineconsole '.shellescape('%:p:r.exe') <CR>
+autocmd filetype cpp nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-g++ -static -time -std=c90 '.shellescape('%:p')' -o '.shellescape('%:p:r.exe')' && wineconsole '.shellescape('%:p:r.exe') <CR>
 autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 "JUST RUN THE COMPILED CODE
 autocmd filetype cpp nnoremap <F3> :w <bar> exec '!./'.shellescape('%:r')<CR>
@@ -347,7 +347,7 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " command to open a new terminal in the current directoy
-map <F8> :exec '!konsole'.shellescape('%:p')' && disown' <CR>
+map <F8> :exec '!konsole '.shellescape('%:p')' && disown' <CR>
 map <F9> :exec '!gnome-terminal '.shellescape('%:p')' && disown' <CR>
 "TODO: arreglar este comando
 "map <F10> :exec '!xfce4-terminal --default-working-directory='.shellescape('%:p')' && disown' <CR>
