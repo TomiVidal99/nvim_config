@@ -228,7 +228,7 @@ autocmd filetype python nnoremap <F4> :w <bar> exec '!python '.shellescape('%')<
 "autocmd filetype c nnoremap <F4> :w <bar> exec '!gcc '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 autocmd filetype c nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-gcc '.shellescape('%:p')'-o '.shellescape('%:p:r.exe')'-std=c90 && wineconsole '.shellescape('%:p:r.exe') <CR>
 autocmd filetype c nnoremap <F5> :w <bar> term gcc %:p -o %:p:r -lm && %:p:r <CR>
-autocmd filetype cpp nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-g++ -static -time -std=c90 '.shellescape('%:p')' -o '.shellescape('%:p:r.exe')' && wineconsole '.shellescape('%:p:r.exe') <CR>
+autocmd filetype cpp nnoremap <F4> :w <bar> exec '!i686-w64-mingw32-g++ -static -time '.shellescape('%:p')' -o '.shellescape('%:p:r.exe')' && wineconsole '.shellescape('%:p:r.exe') <CR>
 autocmd filetype cpp nnoremap <F5> :w <bar> exec '!g++ '.shellescape('%').' -o '.shellescape('%:r').' && ./'.shellescape('%:r')<CR>
 "JUST RUN THE COMPILED CODE
 autocmd filetype cpp nnoremap <F3> :w <bar> exec '!./'.shellescape('%:r')<CR>
