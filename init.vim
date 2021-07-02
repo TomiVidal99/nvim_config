@@ -1,5 +1,7 @@
 "SHOULD INSTALL the_silver_searcher
 
+packadd! vimspector
+
 "set the default fzf preview key
 let g:coc_fzf_preview_toggle_key = "?"
 "fuzzy finder hotkeys
@@ -99,6 +101,11 @@ call plug#begin("~/.vim/plugged")
 
     Plug 'octol/vim-cpp-enhanced-highlight'
 
+    " cpp debugger
+    " hard installation see DOCS
+    Plug 'puremourning/vimspector' 
+    let g:vimspector_base_dir=expand( '$HOME/.nvim/vimspector-config' )
+
     " cpp linting
     " FOR IT TO RUN INSTALL: pip install cpplint
     Plug 'vim-syntastic/syntastic'
@@ -139,6 +146,25 @@ call plug#begin("~/.vim/plugged")
     Plug 'cometsong/CommentFrame.vim'
 
 call plug#end()
+
+"keybinds for cpp debugger
+command! -nargs=+ YY call vimspector#AddFunctionBreakpoint(<f-args>)
+nnoremap <Leader>Ll :call vimspector#Launch()<cr>
+nnoremap <Leader>Yc :call vimspector#Continue()<cr>
+nnoremap <Leader>Ys :call vimspector#Stop()<cr>
+nnoremap <Leader>Yr :call vimspector#Restart()<cr>
+nnoremap <Leader>Yp :call vimspector#Pause()<cr>
+nnoremap <Leader>Yb :call vimspector#ToggleBreakpoint()<cr>
+nnoremap <Leader>YB :call vimspector#ToggleConditionalBreakpoint()<cr>
+nnoremap <Leader>Yn :call vimspector#StepOver()<cr>
+nnoremap <Leader>Yi :call vimspector#StepInto()<cr>
+nnoremap <Leader>Yo :call vimspector#StepOut()<cr>
+nnoremap <Leader>YR :call vimspector#RunToCursor()<cr>
+" mnemonic 'di' = 'debug inspect' (pick your own, if you prefer!)
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
 
 "vim-cpp-enhanced-highlight
 let g:cpp_class_scope_highlight = 1
