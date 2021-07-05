@@ -1,4 +1,5 @@
 "SHOULD INSTALL the_silver_searcher
+"SHOULD clone the repositoriy for vimspector
 
 packadd! vimspector
 
