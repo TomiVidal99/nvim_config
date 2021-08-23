@@ -44,6 +44,7 @@ let g:clipboard = {
       \ }
 
 "config for coc snippets: SHOULD INSTALL PYTHON NVIM
+"COMMAND TO EDIT SNIPPETS: CocCommand snippets.editSnippets
 " Use <C-l> for trigger snippet expand.
 imap <C-z> <Plug>(coc-snippets-expand)
 " Use <C-j> for select text for visual placeholder of snippet.
