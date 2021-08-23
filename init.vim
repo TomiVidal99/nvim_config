@@ -377,10 +377,8 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " command to open a new terminal in the current directoy
-map <F8> :exec '!konsole '.shellescape('%:p')' & disown' <CR>
-map <F9> :exec '!gnome-terminal '.shellescape('%:p')' & disown' <CR>
-"TODO: arreglar este comando
-"map <F10> :exec '!xfce4-terminal --default-working-directory='.shellescape('%:p')' && disown' <CR>
+map <F8> :exec '!konsole '.shellescape('%:p')' && disown' <CR>
+map <F9> :exec '!xfce4-terminal --default-working-directory='.shellescape('%:p:h')'' <CR>
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FANCY COMMENTS ~~~~~
 " USAGE OF FANCY COMMENTS
