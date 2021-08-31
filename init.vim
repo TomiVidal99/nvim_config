@@ -380,6 +380,9 @@ nmap ga <Plug>(EasyAlign)
 map <F8> :exec '!konsole '.shellescape('%:p')' & disown' <CR>
 map <F9> :exec '!xfce4-terminal --default-working-directory='.shellescape('%:p:h')'' <CR>
 
+" open .html file in brave browser
+autocmd filetype html nnoremap <F4> :w <bar> exec '!brave ./'.shellescape('%')' & disown & exit'<CR>
+
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FANCY COMMENTS ~~~~~
 " USAGE OF FANCY COMMENTS
 "
