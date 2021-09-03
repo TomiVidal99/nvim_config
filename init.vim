@@ -94,9 +94,13 @@ call plug#begin("~/.vim/plugged")
 
 	let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json']
 
+    Plug 'pangloss/vim-javascript'
 	Plug 'leafgarland/typescript-vim'
 	Plug 'peitalin/vim-jsx-typescript'
     Plug 'mxw/vim-jsx'
+
+    "auto complete { [ (
+    Plug 'jiangmiao/auto-pairs'
 
     Plug 'preservim/nerdcommenter'
 
@@ -360,7 +364,7 @@ nmap <A-c> :res -1 <CR>
 nmap <A-p> :VimtexCompile <CR>
 
 "bind to auto complete close of brackets
-inoremap { {<CR>}<Esc>ko
+"inoremap { {<CR>}<Esc>ko
 
 "bind to switch fold on git changes on current file
 nmap <A-n> :GitGutterFold <CR>
