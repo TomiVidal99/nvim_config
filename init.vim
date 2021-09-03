@@ -96,6 +96,7 @@ call plug#begin("~/.vim/plugged")
 
 	Plug 'leafgarland/typescript-vim'
 	Plug 'peitalin/vim-jsx-typescript'
+    Plug 'mxw/vim-jsx'
 
     Plug 'preservim/nerdcommenter'
 
@@ -382,6 +383,7 @@ map <F9> :exec '!xfce4-terminal --default-working-directory='.shellescape('%:p:h
 
 " open .html file in brave browser
 autocmd filetype html nnoremap <F4> :w <bar> exec '!brave ./'.shellescape('%')' & disown & exit'<CR>
+autocmd filetype javascript nnoremap <F4> :w <bar> exec '!konsole '.shellescape('%:p')' -e yarn start & disown' <CR>
 
 "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ FANCY COMMENTS ~~~~~
 " USAGE OF FANCY COMMENTS
