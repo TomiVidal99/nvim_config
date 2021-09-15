@@ -82,7 +82,7 @@ set softtabstop=4
 set shiftwidth=4
 call plug#begin("~/.vim/plugged")
 
-	Plug 'scrooloose/nerdtree'
+    Plug 'scrooloose/nerdtree'
 
 	Plug 'ryanoasis/vim-devicons'
 
@@ -95,9 +95,16 @@ call plug#begin("~/.vim/plugged")
 	let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json']
 
     Plug 'pangloss/vim-javascript'
-	Plug 'leafgarland/typescript-vim'
-	Plug 'peitalin/vim-jsx-typescript'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'peitalin/vim-jsx-typescript'
     Plug 'mxw/vim-jsx'
+    "Plug 'sheerun/vim-polyglot', { 'tag': 'v4.17.0' }
+
+    "Plug 'pangloss/vim-javascript'
+    "Plug 'leafgarland/typescript-vim'
+    "Plug 'peitalin/vim-jsx-typescript'
+    "Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+    "Plug 'jparise/vim-graphql'
 
     "auto complete { [ (
     Plug 'jiangmiao/auto-pairs'
@@ -351,6 +358,24 @@ map <A-a> :noh<CR>
 "             \ 'on_complete': ['ncm2#on_complete#omni', 'vimtex#complete#omnifunc'],
 "             \ })
 " augroup END
+
+" " set filetypes as typescriptreact
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+" set up color for the jsx tsx files
+" dark red
+hi tsxTagName guifg=#E06C75
+hi tsxComponentName guifg=#E06C75
+hi tsxCloseComponentName guifg=#E06C75
+
+" orange
+hi tsxCloseString guifg=#F99575
+hi tsxCloseTag guifg=#F99575
+hi tsxCloseTagName guifg=#F99575
+hi tsxAttributeBraces guifg=#F99575
+hi tsxEqual guifg=#F99575
+
+" yellow
+hi tsxAttrib guifg=#F8BD7F cterm=italic
 
 " AUTO MAPPING FOR MATLAB LIBRARY DISABLED
 let g:matlab_auto_mappings = 0 "automatic mappings disabled
