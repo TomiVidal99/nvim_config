@@ -321,7 +321,7 @@ set relativenumber
 let mapleader = " " " map leader to Space
 let mapleader = "," " map leader to comma
 
-nmap <C-s> :w <CR>
+nmap <C-s> :w <CR> :CocCommand eslint.executeAutofix <CR>
 
 " bind Ctrl+k moves to next tab
 " bind Ctrl+j moves to previous tab
@@ -385,7 +385,7 @@ nmap <A-v> :res +1 <CR>
 nmap <A-c> :res -1 <CR>
 
 "bind to auto compile .tex (latex) files
-nmap <A-p> :VimtexCompile <CR>
+nmap <A-0> :VimtexCompile <CR>
 
 "bind to auto complete close of brackets
 "inoremap { {<CR>}<Esc>ko
